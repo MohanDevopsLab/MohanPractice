@@ -3,7 +3,7 @@ pipeline {
     agent any
     tools {
         maven 'Maven'
-    }
+        }
 
     stages {
         // Specify various stage with in stages
@@ -25,7 +25,7 @@ pipeline {
 
 
         //stage 3 : Deploy
-        stage ('deploy') {
+    stage ('deploy') {
             steps {
                 echo 'deploying...!'
             }
@@ -39,8 +39,8 @@ pipeline {
                 }
 
             }*/
-        }
+    }
 
         
         
-    }
+}
