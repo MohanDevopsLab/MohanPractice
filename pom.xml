@@ -4,7 +4,7 @@
   <groupId>com.mohansdevopslab</groupId>
   <artifactId>MohanDevOpsLab</artifactId>
   <packaging>war</packaging>
-  <version>0.0.4_SNAPSHOT</version>
+  <version>0.0.5_SNAPSHOT</version>
   <name>MohanDevOpsLab</name>
   <url>http://maven.apache.org</url>
   <dependencies>
