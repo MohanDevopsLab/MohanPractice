@@ -26,7 +26,7 @@ pipeline {
         //stage 3 : Publish the artifacts to Nexus
         stage ('publish to Nexus') {
             steps {
-                nexusArtifactUploader artifacts: [[artifactId: 'MohanDevOpsLab', classifier: '', file: 'target/MohanDevOpsLab-0.0.3_SNAPSHOT.war', type: 'war']], credentialsId: '6581f915-5dce-4c8c-bbc5-876f93bf50a1', groupId: 'com.mohansdevopslab', nexusUrl: '13.235.248.58:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'MohanDevOpsLab-SNAPSHOT', version: '0.0.3_SNAPSHOT'
+                nexusArtifactUploader artifacts: [[artifactId: 'MohanDevOpsLab', classifier: '', file: 'target/MohanDevOpsLab-0.0.4_SNAPSHOT.war', type: 'war']], credentialsId: '0c658c3a-7a29-4a38-9c5a-e435738cac03', groupId: 'com.mohansdevopslab', nexusUrl: '13.234.239.200:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'MohanDevOpsLab_SNAPSHOT', version: '0.0.4_SNAPSHOT'
             }
 
         }
