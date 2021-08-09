@@ -33,17 +33,20 @@ pipeline {
         //stage 3 : Publish the artifacts to Nexus
         stage ('publish to Nexus') {
             steps {
+                script {
+                    def NexusRepo = Version.endswith("SNAPSHOT") ? "MohanDevOpsLab_SNAPSHOT" : "MohanDevOpsLab_RELEASE"
+                }
                 nexusArtifactUploader artifacts: 
                 [[artifactId: "${ArtifactId}", 
                 classifier: '', 
-                file: 'target/MohanDevOpsLab-0.0.6-SNAPSHOT.war', 
+                file: "target/${ArtifactId}-${Version}.war", 
                 type: 'war']], 
                 credentialsId: '0c658c3a-7a29-4a38-9c5a-e435738cac03', 
                 groupId: "${GroupId}", 
-                nexusUrl: '13.234.239.200:8081', 
+                nexusUrl: '13.232.46.57:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http',
-                repository: 'MohanDevOpsLab_SNAPSHOT', 
+                repository: "${NexusRepo}", 
                 version: "${Version}"
             }
 
