@@ -46,7 +46,7 @@ pipeline {
                 nexusUrl: '13.232.46.57:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http',
-                repository: "${NexusRepo}", 
+                repository: 'MohanDevOpsLab_SNAPSHOT', 
                 version: "${Version}"
             }
 
