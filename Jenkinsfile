@@ -4,6 +4,13 @@ pipeline {
     tools {
         maven 'Maven'
         }
+    environment {
+        ArtifactId = readMavenPom().getArtifactId()
+        Version = readMavenPom().getVersion()
+        Name =  readMavenPom().getName()
+        GroupId = readMavenPom().getGroupId()
+
+    }
 
     stages {
         // Specify various stage with in stages
@@ -26,12 +33,33 @@ pipeline {
         //stage 3 : Publish the artifacts to Nexus
         stage ('publish to Nexus') {
             steps {
-                nexusArtifactUploader artifacts: [[artifactId: 'MohanDevOpsLab', classifier: '', file: 'target/MohanDevOpsLab-0.0.6-SNAPSHOT.war', type: 'war']], credentialsId: '0c658c3a-7a29-4a38-9c5a-e435738cac03', groupId: 'com.mohansdevopslab', nexusUrl: '13.234.239.200:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'MohanDevOpsLab_SNAPSHOT', version: '0.0.6-SNAPSHOT'
+                nexusArtifactUploader artifacts: 
+                [[artifactId: "${ArtifactId}", 
+                classifier: '', 
+                file: 'target/MohanDevOpsLab-0.0.6-SNAPSHOT.war', 
+                type: 'war']], 
+                credentialsId: '0c658c3a-7a29-4a38-9c5a-e435738cac03', 
+                groupId: "${GroupId}", 
+                nexusUrl: '13.234.239.200:8081', 
+                nexusVersion: 'nexus3', 
+                protocol: 'http',
+                repository: 'MohanDevOpsLab_SNAPSHOT', 
+                version: "${Version}"
             }
 
         }
-        //stage 4 : Deploy
-    stage ('deploy') {
+        //Stage 4: Print some Information
+        stage ('publish Environmental Variables'){
+            steps {
+                echo "ArtifactId is '${ArtifactId}'"
+                echo "GroupId is '${GroupId}'"
+                echo "Version is '${Version}'"
+                echo "Name is '${Name}'"
+            }
+        }
+
+        //stage 5 : Deploy
+        stage ('deploy') {
             steps {
                 echo 'deploying...!'
             }
