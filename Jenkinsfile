@@ -63,7 +63,7 @@ pipeline {
         }
 
         //stage 5 : Deploy to tomcat
-        
+
         stage ('deploy') {
             steps {
                 echo 'deploying...!'
@@ -92,7 +92,7 @@ pipeline {
         }
 
         //stage 6 : Deploy to Docker
-        stage ('deploy') {
+        stage ('deploy to Docker') {
             steps {
                 echo 'deploying...!'
                 sshPublisher(publishers: [sshPublisherDesc(
