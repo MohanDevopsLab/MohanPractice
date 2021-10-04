@@ -66,6 +66,27 @@ pipeline {
         stage ('deploy') {
             steps {
                 echo 'deploying...!'
+                sshPublisher(publishers: [sshPublisherDesc(
+                    configName: 'AnsibleController', 
+                    transfers: [
+                        sshTransfer(
+                            cleanRemote: false, 
+                            excludes: '', 
+                            execCommand: 'ansible-playbook /opt/playbooks/downloadanddeploy-tomcat.yaml -i /opt/playbooks/hosts', 
+                            execTimeout: 120000, 
+                            flatten: false, 
+                            makeEmptyDirs: false, 
+                            noDefaultExcludes: false, 
+                            patternSeparator: '[, ]+', 
+                            remoteDirectory: '', 
+                            remoteDirectorySDF: false, 
+                            removePrefix: '', 
+                            sourceFiles: '')], 
+                    usePromotionTimestamp: false,
+                    useWorkspaceInPromotion: false,
+                    verbose: false)])
+
+            
             }
         }
         // Stage3 : Publish the source code to Sonarqube
