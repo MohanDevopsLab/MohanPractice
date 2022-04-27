@@ -10,9 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: zip files
-        run:
-          mkdir compress
-          zip -r compress/myzip1.zip .
+        run: zip -r compress/myzip1.zip .
 #           - zip release/myzip.zip .
 #       - uses: actions/checkout@v2
 #       - uses: papeloto/action-zip@v1
