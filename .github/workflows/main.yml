@@ -1,9 +1,10 @@
 name: Upload feeds
 
 on:
-  push:
-    branches:
-    - master
+#   push:
+  workflow_dispatch:
+#     branches:
+#     - master
 
 jobs:
   deploy:
