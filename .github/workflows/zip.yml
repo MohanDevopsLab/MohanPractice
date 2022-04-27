@@ -12,7 +12,7 @@ jobs:
       - name: zip files
         run:
           mkdir zip          
-          - zip release/myzip.zip .
+#           - zip release/myzip.zip .
 #       - uses: actions/checkout@v2
 #       - uses: papeloto/action-zip@v1
 #         with:
