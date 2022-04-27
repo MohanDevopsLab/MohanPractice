@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: zip files
-        run: zip -r compress/myzip1.zip . -i .
+        run: zip -r myzip1.zip . -i .
 #           - zip release/myzip.zip .
 #       - uses: actions/checkout@v2
 #       - uses: papeloto/action-zip@v1
@@ -29,5 +29,5 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy static site to S3 bucket
-        run: aws s3 sync compress/myzip1.zip s3://testforcodedeploytentu/DCS/Factsetdcsfull/ --delete --exclude '.git/*' --exclude '.github/*'
+        run: aws s3 sync myzip1.zip s3://testforcodedeploytentu/DCS/Factsetdcsfull/ --delete --exclude '.git/*' --exclude '.github/*'
 
