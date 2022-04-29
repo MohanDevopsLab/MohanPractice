@@ -1,6 +1,7 @@
 name: zip feeds
 
 on:
+  workflow_dispatch:
   push:
     branches:
     - master
