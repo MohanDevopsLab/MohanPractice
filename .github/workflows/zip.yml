@@ -1,12 +1,12 @@
 name: zip feeds
 
 on:
-#   workflow_dispatch:
+   workflow_dispatch:
 #   push:
 #     branches:
 #     - master
-  schedule:
-    - cron: "*/5 * * * *"
+#   schedule:
+#     - cron: "*/5 * * * *"
 
 jobs:
   deploy:
