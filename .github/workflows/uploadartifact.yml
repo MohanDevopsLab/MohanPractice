@@ -1,4 +1,4 @@
-name: zip feeds
+name: uploadartifact
 
 on:
    workflow_dispatch:
