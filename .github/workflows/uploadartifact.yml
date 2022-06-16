@@ -23,4 +23,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
+          path: "./_build"  
 #           path: ${{ github.workspace }}/myzip1.zip
